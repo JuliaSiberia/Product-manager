@@ -57,4 +57,30 @@ public class ProductManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    @Test
+
+    public void productSearchById() {
+
+        manager.add(book1);
+        manager.add(book2);
+        manager.add(smartphone1);
+        manager.add(smartphone2);
+
+        Product[] expected = {book2};
+        Product[] actual = manager.searchBy("21");
+    }
+
+    @Test
+
+    public void nothingFoundForYourSearch() {
+
+        manager.add(book1);
+        manager.add(book2);
+        manager.add(smartphone1);
+        manager.add(smartphone2);
+
+        Product[] expected = {};
+        Product[] actual = manager.searchBy("samsung");
+    }
 }
